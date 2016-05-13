@@ -13,3 +13,10 @@ export const setServiceFilter = (filter) => {
     filter
   }
 }
+
+export const toggleService = (serviceName) => {
+  return {
+    type: 'TOGGLE_SERVICE',
+    serviceName
+  }
+}
