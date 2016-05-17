@@ -1,21 +1,27 @@
 import React, { PropTypes } from 'react'
+import Checkbox from './Checkbox'
 
-const ServiceCheckbox = ({ serviceName, children, changeHandler }) => {
-    return (
-        <input type='checkbox'
-            onChange={e => {
-                e.preventDefault()
-                console.log(serviceName)
-                // changeHandler(serviceName)
-            }}
-         />
-    )
-}
+const ServiceCheckbox = ({ services, onServiceClick }) => (
+    <div>
+        {services.map(service =>
+            <Checkbox
+                key={service.id}
+                {...service}
+                status={service.status}
+                name={service.name}
+                changeHandler={() => onServiceClick(service.id)}
+            />
+        )}
+    </div>
+)
 
 ServiceCheckbox.propTypes = {
-    serviceName: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    changeHandler: PropTypes.func.isRequired
+    services: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        status: PropTypes.bool.isRequired
+    }).isRequired).isRequired,
+    onServiceClick: PropTypes.func.isRequired
 }
 
 export default ServiceCheckbox

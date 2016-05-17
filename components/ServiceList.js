@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react'
 import Service from './Service'
 
-const ServiceList = ({ services }) => (
+const ServiceList = ({ services, servicesStatus }) => (
     <ul>
         {services.map(service =>
             <Service
+                key={service.id}
                 {...service}
+                name={service.name}
+                show={service.status}
+                status={[servicesStatus.isFetching]?'N/A':servicesStatus[service.id]}
             />
         )}
     </ul>
@@ -13,7 +17,9 @@ const ServiceList = ({ services }) => (
 
 ServiceList.propTypes = {
     services: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        status: PropTypes.bool.isRequired
     }).isRequired).isRequired
 }
 

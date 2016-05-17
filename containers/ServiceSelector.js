@@ -9,17 +9,17 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        changeHandler: () => {
-            dispatch(toggleService(ownProps.serviceName))
+        onServiceClick: (id) => {
+            dispatch(toggleService(id))
         }
     }
 }
 
-let CheckService = connect(
+const ServiceSelector = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ServiceCheckbox)
 
-export default CheckService
+export default ServiceSelector
