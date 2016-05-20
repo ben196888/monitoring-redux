@@ -7,7 +7,7 @@ const ServiceCheckbox = ({ services, onServiceClick }) => (
             <Checkbox
                 key={service.id}
                 {...service}
-                status={service.status}
+                shouldFetch={service.shouldFetch}
                 name={service.name}
                 changeHandler={() => onServiceClick(service.id)}
             />
@@ -19,7 +19,7 @@ ServiceCheckbox.propTypes = {
     services: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
-        status: PropTypes.bool.isRequired
+        shouldFetch: PropTypes.bool.isRequired
     }).isRequired).isRequired,
     onServiceClick: PropTypes.func.isRequired
 }

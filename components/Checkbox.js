@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 
-const Checkbox = ({ status, name, changeHandler }) => {
+const Checkbox = ({ shouldFetch, name, changeHandler }) => {
     return (
         <div>
             <input type='checkbox'
                 onChange={e => {changeHandler()}}
                 value={name}
-                checked={status}
+                checked={shouldFetch}
             />
             {name}
         </div>
@@ -16,7 +16,7 @@ const Checkbox = ({ status, name, changeHandler }) => {
 Checkbox.propTypes = {
     changeHandler: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
-    status: PropTypes.bool.isRequired
+    shouldFetch: PropTypes.bool.isRequired
 }
 
 export default Checkbox

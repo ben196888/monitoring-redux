@@ -33,29 +33,64 @@ const parseTEXT = (res) => {
   return res.text()
 }
 
+const getStatus = (ip, s) => {
+
+  let obj = {}
+
+  fetch(`http://${ip}:9899/monitorapi/${s.name}`)
+  .then(checkStatus)
+  .then(parseJSON)
+  .then(data => {
+    Object.assign(obj, {
+      [s.id]: {
+        isFetching: false,
+        data
+      }
+    })
+  })
+  .catch(error => {
+    console.warn(error)
+    Object.assign(obj, {
+      [s.id]: {
+        isFetching: true,
+        data: 'N/A'
+      }
+    })
+  })
+  return obj
+}
+
 export const getServicesStatus = (ip, services) => {
 
-  let obj = {
-    isFetching: false
-  }
+  let obj = {}
 
-  services.map(s => {
+  services.filter(s => s.shouldFetch)
+  .map(s => {
+    // Object.assign({}, obj, getStatus(ip, s))
     fetch(`http://${ip}:9899/monitorapi/${s.name}`)
     .then(checkStatus)
-    .then(parseTEXT)
+    .then(parseJSON)
     .then(data => {
-      console.log(data)
       Object.assign(obj, {
-        [s.id]: data
+        [s.id]: {
+          isFetching: false,
+          data
+        }
       })
     })
     .catch(error => {
-      console.log('request failed', error)
       console.warn(error)
+      Object.assign(obj, {
+        [s.id]: {
+          isFetching: false,
+          data: `Cannot get ${s.name} status`
+        }
+      })
     })
   })
   return {
     type: 'GET_SERVICES_STATUS',
-    servicesStatus: Object.assign({}, obj)
+    ip,
+    servicesStatus: obj
   }
 }

@@ -11,6 +11,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-let AddServer = connect(null, mapDispatchToProps)(AddServerForm)
+const AddServer = connect(null, mapDispatchToProps)(AddServerForm)
 
 export default AddServer

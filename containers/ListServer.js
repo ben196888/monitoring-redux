@@ -12,11 +12,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getServicesStatus: (ip, services) => {
-            setInterval(() => {
-                dispatch(getServicesStatus(ip, services))
-            }, 10*1000)
-        }
+        getServicesStatus: (ip, services) => (
+            dispatch(getServicesStatus(ip, services))
+        )
     }
 }
 

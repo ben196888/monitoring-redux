@@ -9,7 +9,8 @@ const ServerList = ({ servers, services, getServicesStatus }) => (
                 {...server}
                 ip={server.ip}
                 services={services}
-                servicesStatus={getServicesStatus(server.ip, services)}
+                getServicesStatus={getServicesStatus}
+                servicesStatus={server.servicesStatus}
             />
         )}
     </ul>
@@ -18,12 +19,12 @@ const ServerList = ({ servers, services, getServicesStatus }) => (
 ServerList.propTypes = {
     servers: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
-        ip: PropTypes.string.isRequired
+        ip: PropTypes.string.isRequired,
     }).isRequired).isRequired,
     services: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
-        status: PropTypes.bool.isRequired
+        shouldFetch: PropTypes.bool.isRequired
     }).isRequired).isRequired,
     getServicesStatus: PropTypes.func.isRequired
 }
