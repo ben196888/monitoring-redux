@@ -4,9 +4,9 @@ const server = (state, action) => {
       if (action.ip !== state.ip){
         return state
       }
-      return Object.assign({}, state, {
+      return { ...state,
         servicesStatus: action.servicesStatus
-      })
+      }
     default:
       return state
   }

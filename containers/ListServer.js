@@ -12,9 +12,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getServicesStatus: (ip, services) => (
+        getStatus: (ip, services) => {
+            console.log("time to dispatch")
             dispatch(getServicesStatus(ip, services))
-        )
+        }
     }
 }
 

@@ -2,9 +2,13 @@ import React, { PropTypes } from 'react'
 import ServiceList from './ServiceList'
 
 class Server extends React.Component {
-    componentWillMount() {
-        let { ip, services, getServicesStatus } = this.props
-        getServicesStatus(ip, services)
+    componentDidMount() {
+        let { ip, services, getStatus } = this.props
+        this.interval = setInterval(getStatus(ip, services), 10 * 1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval)
     }
 
     render() {
@@ -28,7 +32,7 @@ Server.propTypes = {
         name: PropTypes.string.isRequired,
         shouldFetch: PropTypes.bool.isRequired
     }).isRequired).isRequired,
-    getServicesStatus: PropTypes.func.isRequired
+    getStatus: PropTypes.func.isRequired
 }
 
 export default Server
