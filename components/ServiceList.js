@@ -20,7 +20,15 @@ class ServiceList extends React.Component {
                         {...service}
                         name={service.name}
                         show={service.shouldFetch}
-                        status={(servicesStatus === undefined || servicesStatus[service.id] === undefined) ? 'N/A' : ((servicesStatus[service.id]).isFetching ? 'Now Fetching' : ((servicesStatus[service.id]).data).mesg)}
+                        status={
+                            (servicesStatus === undefined ||
+                            servicesStatus[service.id] === undefined ||
+                            (servicesStatus[service.id]).isFetching === undefined) ?
+                                'N/A' :
+                            ((servicesStatus[service.id]).isFetching ?
+                                'Now Fetching' :
+                            ((servicesStatus[service.id]).data).mesg)
+                        }
                     />
                 )}
             </ul>

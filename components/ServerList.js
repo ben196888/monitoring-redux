@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import Server from './Server'
 
-const ServerList = ({ servers, services, getStatus }) => (
+const ServerList = ({ servers, services, pollStatus }) => (
     <ul>
         {servers.map(server =>
             <Server
@@ -9,7 +9,7 @@ const ServerList = ({ servers, services, getStatus }) => (
                 {...server}
                 ip={server.ip}
                 services={services}
-                getStatus={getStatus}
+                pollStatus={pollStatus}
                 servicesStatus={server.servicesStatus}
             />
         )}
@@ -26,7 +26,7 @@ ServerList.propTypes = {
         name: PropTypes.string.isRequired,
         shouldFetch: PropTypes.bool.isRequired
     }).isRequired).isRequired,
-    getStatus: PropTypes.func.isRequired
+    pollStatus: PropTypes.func.isRequired
 }
 
 export default ServerList

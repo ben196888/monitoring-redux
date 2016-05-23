@@ -3,8 +3,8 @@ import ServiceList from './ServiceList'
 
 class Server extends React.Component {
     componentDidMount() {
-        let { ip, services, getStatus } = this.props
-        this.interval = setInterval(getStatus(ip, services), 10 * 1000)
+        let { ip, services, pollStatus } = this.props
+        this.interval = setInterval(pollStatus(ip, services), 10 * 1000)
     }
 
     componentWillUnmount() {
@@ -32,7 +32,7 @@ Server.propTypes = {
         name: PropTypes.string.isRequired,
         shouldFetch: PropTypes.bool.isRequired
     }).isRequired).isRequired,
-    getStatus: PropTypes.func.isRequired
+    pollStatus: PropTypes.func.isRequired
 }
 
 export default Server

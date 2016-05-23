@@ -1,7 +1,7 @@
 import ServerList from '../components/ServerList'
 
 import { connect } from 'react-redux'
-import { getServicesStatus } from '../actions'
+import { pollServiceStatus } from '../actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -12,9 +12,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getStatus: (ip, services) => {
+        pollStatus: (ip, services) => {
             console.log("time to dispatch")
-            dispatch(getServicesStatus(ip, services))
+            dispatch(pollServiceStatus(ip, services))
         }
     }
 }

@@ -1,8 +1,7 @@
-import { takeEvery, takeLatest } from 'redux-saga'
-import { call, put } from 'redux-saga/effects'
+import { watchPollServiceStatus } from './serviceStatus'
 
 export default function* rootSaga() {
     yield [
-
+        watchPollServiceStatus()
     ]
 }
