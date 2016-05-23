@@ -11,24 +11,27 @@ class ServiceList extends React.Component {
     }
 
     render() {
-        let { services, servicesStatus } = this.props
+        let { ip, services, servicesStatus, pollStatus } = this.props
         return (
             <ul>
-                {services.map(service =>
+                {services.filter(s => s.shouldFetch)
+                .map(service =>
                     <Service
                         key={service.id}
                         {...service}
+                        ip={ip}
+                        id={service.id}
                         name={service.name}
-                        show={service.shouldFetch}
-                        status={
-                            (servicesStatus === undefined ||
-                            servicesStatus[service.id] === undefined ||
-                            (servicesStatus[service.id]).isFetching === undefined) ?
+                        info={(
+                            servicesStatus.status === 'init' ?
                                 'N/A' :
-                            ((servicesStatus[service.id]).isFetching ?
-                                'Now Fetching' :
-                            ((servicesStatus[service.id]).data).mesg)
-                        }
+                            servicesStatus.status === 'connecting' ?
+                                'Connecting...' :
+                            servicesStatus.status === 'error' ?
+                                'Server not found' :
+                            servicesStatus.status === 'connected' ?
+                                servicesStatus[service.id] : null
+                        )}
                     />
                 )}
             </ul>
@@ -37,11 +40,13 @@ class ServiceList extends React.Component {
 }
 
 ServiceList.propTypes = {
+    ip: PropTypes.string.isRequired,
     services: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         shouldFetch: PropTypes.bool.isRequired
-    }).isRequired).isRequired
+    }).isRequired).isRequired,
+    pollStatus: PropTypes.func.isRequired
 }
 
 export default ServiceList
