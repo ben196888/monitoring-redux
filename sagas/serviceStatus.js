@@ -1,11 +1,11 @@
 import { takeEvery } from 'redux-saga'
+import { call, put } from 'redux-saga/effects'
+
 import {
   POLL_SERVICE_STATUS,
   GET_SERVICE_STATUS_SUCCESS,
   GET_SERVICE_STATUS_ERROR
 } from '../actions'
-import { call, put } from 'redux-saga/effects'
-
 import { getServiceStatusAPI } from '../API'
 
 export function* watchPollServiceStatus() {
