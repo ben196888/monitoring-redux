@@ -1,9 +1,14 @@
 import React, { PropTypes } from 'react'
 
 class Service extends React.Component {
+    componentWillMount() {
+        let { ip, id, name, pollStatus } = this.props
+        pollStatus(ip, id, name)
+    }
+
     componentDidMount() {
         let { ip, id, name, pollStatus } = this.props
-        this.interval = setInterval(pollStatus(ip, id, name), this.queryInterval || 10 * 1000)
+        this.interval = setInterval(pollStatus, this.queryInterval || 10 * 1000, ip, id, name)
     }
 
     componentWillUnmount() {
@@ -17,8 +22,9 @@ class Service extends React.Component {
                 {name}
                 {": "}
                 {
-                    info.status === undefined ?
-                        <pre>info</pre> :
+                    info.status === undefined ||
+                    info.status === null ?
+                        info :
                     info.status === 'init' ?
                         'Get Service Meta...' :
                     info.status === 'fetching' ?

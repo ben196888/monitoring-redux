@@ -11,36 +11,41 @@ const server = (state, action) => {
   }
   switch (action.type) {
     case POLL_SERVICE_STATUS:
-      return {
-        ...state,
-        status: 'connected',
-        [action.id]: {
-          status: 'fetching'
-        }
-      }
+      return Object.assign({}, state, {
+        servicesStatus: Object.assign(state.servicesStatus, {
+          status: 'connected',
+          [action.id]: {
+            status: 'fetching'
+          }
+        })
+      })
     case GET_SERVICE_STATUS_SUCCESS:
-      return {
-        ...state,
-        [action.id]: {
-          status: 'fetched',
-          data: action.response.mesg
-        }
-      }
+      return Object.assign({}, state, {
+        servicesStatus: Object.assign(state.servicesStatus, {
+          [action.id]: {
+            status: 'fetched',
+            data: action.response.mesg
+          }
+        })
+      })
     case GET_SERVICE_STATUS_ERROR:
-      return {
-        ...state,
-        [action.id]: {
-          status: 'error',
-          error: action.error
-        }
-      }
+      return Object.assign({}, state, {
+        servicesStatus: Object.assign(state.servicesStatus, {
+          [action.id]: {
+            status: 'error',
+            error: action.error
+          }
+        })
+      })
     case GET_SERVICE_STATUS_CANCEL:
-      return {
-        ...state,
-        [action.id]: {
-          status: 'init'
-        }
-      }
+      return Object.assign({}, state, {
+        servicesStatus: Object.assign(state.servicesStatus, {
+          ...servicesStatus,
+          [action.id]: {
+            status: 'init'
+          }
+        })
+      })
     default:
       return state
   }
