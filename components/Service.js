@@ -8,7 +8,7 @@ class Service extends React.Component {
 
     componentDidMount() {
         let { ip, id, name, pollStatus } = this.props
-        this.interval = setInterval(pollStatus, this.queryInterval || 10 * 1000, ip, id, name)
+        this.interval = setInterval(() => pollStatus(ip, id, name), this.queryInterval || 10 * 1000)
     }
 
     componentWillUnmount() {

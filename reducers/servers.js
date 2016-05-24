@@ -1,4 +1,5 @@
 import {
+  ADD_SERVER,
   POLL_SERVICE_STATUS,
   GET_SERVICE_STATUS_SUCCESS,
   GET_SERVICE_STATUS_ERROR,
@@ -40,7 +41,6 @@ const server = (state, action) => {
     case GET_SERVICE_STATUS_CANCEL:
       return Object.assign({}, state, {
         servicesStatus: Object.assign(state.servicesStatus, {
-          ...servicesStatus,
           [action.id]: {
             status: 'init'
           }
@@ -53,7 +53,7 @@ const server = (state, action) => {
 
 const servers = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_SERVER':
+    case ADD_SERVER:
       return [
         ...state,
         {
