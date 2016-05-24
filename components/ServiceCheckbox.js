@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Checkbox from './Checkbox'
 
 const ServiceCheckbox = ({ services, onServiceClick }) => (
-    <div>
+    <div style={{display: 'table-cell'}}>
         {services.map(service =>
             <Checkbox
                 key={service.id}

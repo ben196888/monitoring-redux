@@ -5,7 +5,7 @@ class Server extends React.Component {
     render() {
         const { ip, services, servicesStatus, pollStatus } = this.props
         return (
-            <li>
+            <li style={{display: 'block'}}>
                 {ip}
                 <ServiceList
                     ip={ip}

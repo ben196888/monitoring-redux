@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 const Checkbox = ({ shouldFetch, name, changeHandler }) => {
     return (
-        <div>
+        <div style={{ width: '150px', display: 'inline-block' }} >
             <input type='checkbox'
                 onChange={e => {changeHandler()}}
                 value={name}
