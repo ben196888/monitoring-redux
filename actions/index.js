@@ -1,5 +1,3 @@
-import { getServiceStatusAPI } from '../API'
-
 export const ADD_SERVER = 'ADD_SERVER'
 export const TOGGLE_SERVICE = 'TOGGLE_SERVICE'
 export const POLL_SERVICE_STATUS = 'POLL_SERVICE_STATUS'
