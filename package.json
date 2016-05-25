@@ -4,7 +4,7 @@
   "description": "Monitoring App with react redux",
   "scripts": {
     "start": "node server.js",
-    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
+    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js --reporter mochawesome",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
