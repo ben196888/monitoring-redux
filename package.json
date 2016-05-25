@@ -14,8 +14,9 @@
   "keywords": [
     "react",
     "redux",
-    "todo",
-    "step-by-step"
+    "redux-saga",
+    "hopebay",
+    "monitoring"
   ],
   "author": "ben196888",
   "license": "MIT",
