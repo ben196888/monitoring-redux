@@ -32,7 +32,7 @@ class Service extends React.Component {
                     info.status === 'fetched' ?
                         <pre>{JSON.stringify(info.data, null, 2)}</pre> :
                     info.status === 'error' ?
-                        <pre>{JSON.stringify(info.error, null, 2)}</pre> : null
+                        info.error.toString() : null
                 }
             </li>
         )

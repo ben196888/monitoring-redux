@@ -17,6 +17,9 @@ const fetchAPI = (url, options = {}) => {
   return fetch(url, options)
          .then(checkStatus)
          .then(parseJSON)
+         .catch((error) => {
+          throw error
+         })
 }
 
 export const getServiceStatusAPI = ({ip, name}) => {

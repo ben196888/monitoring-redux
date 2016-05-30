@@ -13,7 +13,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         pollStatus: (ip, id, name) => {
-            console.log("time to dispatch")
             dispatch(pollServiceStatus({ip, id, name}))
         }
     }
