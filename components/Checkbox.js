@@ -5,7 +5,7 @@ const Checkbox = ({ shouldFetch, name, changeHandler }) => {
         <div style={{ width: '150px',
                     display: 'inline-block',
                     background: shouldFetch?'white':'blue' }}
-             onClick={changeHandler()}>
+             onClick={changeHandler}>
             {name}
         </div>
     )

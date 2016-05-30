@@ -19,7 +19,7 @@ const ServerList = ({ servers, services, pollStatus }) => (
 ServerList.propTypes = {
     servers: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
-        ip: PropTypes.string.isRequired,
+        ip: PropTypes.string.isRequired
     }).isRequired).isRequired,
     services: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
