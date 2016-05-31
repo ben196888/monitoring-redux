@@ -134,23 +134,23 @@ describe('Reducers/ servers', () => {
       ip: '10.10.99.90',
       id: 2,
       response: {
-        "error_mesg": null,
-        "hostname": "hopebay-00-01",
-        "mesg": [
+        'error_mesg': null,
+        'hostname': 'hopebay-00-01',
+        'mesg': [
           {
-            "cpu_id": "cpu0",
-            "temperature": 41,
-            "temperature_status": "0x1010",
-            "usage": 0.2506
+            'cpu_id': 'cpu0',
+            'temperature': 41,
+            'temperature_status': '0x1010',
+            'usage': 0.2506
           },
           {
-            "cpu_id": "cpu1",
-            "temperature": 39,
-            "temperature_status": "0x1010",
-            "usage": 0
+            'cpu_id': 'cpu1',
+            'temperature': 39,
+            'temperature_status': '0x1010',
+            'usage': 0
           }
         ],
-        "module_name": "cpu_status"
+        'module_name': 'cpu_status'
       }
     })).toEqual([{
       id: 0,
@@ -162,16 +162,16 @@ describe('Reducers/ servers', () => {
           status: 'fetched',
           data: [
             {
-              "cpu_id": "cpu0",
-              "temperature": 41,
-              "temperature_status": "0x1010",
-              "usage": 0.2506
+              'cpu_id': 'cpu0',
+              'temperature': 41,
+              'temperature_status': '0x1010',
+              'usage': 0.2506
             },
             {
-              "cpu_id": "cpu1",
-              "temperature": 39,
-              "temperature_status": "0x1010",
-              "usage": 0
+              'cpu_id': 'cpu1',
+              'temperature': 39,
+              'temperature_status': '0x1010',
+              'usage': 0
             }
           ]
         },
@@ -190,16 +190,16 @@ describe('Reducers/ servers', () => {
           status: 'fetched',
           data: [
             {
-              "cpu_id": "cpu0",
-              "temperature": 41,
-              "temperature_status": "0x1010",
-              "usage": 0.2506
+              'cpu_id': 'cpu0',
+              'temperature': 41,
+              'temperature_status': '0x1010',
+              'usage': 0.2506
             },
             {
-              "cpu_id": "cpu1",
-              "temperature": 39,
-              "temperature_status": "0x1010",
-              "usage": 0
+              'cpu_id': 'cpu1',
+              'temperature': 39,
+              'temperature_status': '0x1010',
+              'usage': 0
             }
           ]
         },
@@ -220,16 +220,16 @@ describe('Reducers/ servers', () => {
           status: 'fetched',
           data: [
             {
-              "cpu_id": "cpu0",
-              "temperature": 41,
-              "temperature_status": "0x1010",
-              "usage": 0.2506
+              'cpu_id': 'cpu0',
+              'temperature': 41,
+              'temperature_status': '0x1010',
+              'usage': 0.2506
             },
             {
-              "cpu_id": "cpu1",
-              "temperature": 39,
-              "temperature_status": "0x1010",
-              "usage": 0
+              'cpu_id': 'cpu1',
+              'temperature': 39,
+              'temperature_status': '0x1010',
+              'usage': 0
             }
           ]
         },
@@ -252,16 +252,16 @@ describe('Reducers/ servers', () => {
           status: 'fetched',
           data: [
             {
-              "cpu_id": "cpu0",
-              "temperature": 41,
-              "temperature_status": "0x1010",
-              "usage": 0.2506
+              'cpu_id': 'cpu0',
+              'temperature': 41,
+              'temperature_status': '0x1010',
+              'usage': 0.2506
             },
             {
-              "cpu_id": "cpu1",
-              "temperature": 39,
-              "temperature_status": "0x1010",
-              "usage": 0
+              'cpu_id': 'cpu1',
+              'temperature': 39,
+              'temperature_status': '0x1010',
+              'usage': 0
             }
           ]
         },
@@ -285,16 +285,16 @@ describe('Reducers/ servers', () => {
           status: 'fetched',
           data: [
             {
-              "cpu_id": "cpu0",
-              "temperature": 41,
-              "temperature_status": "0x1010",
-              "usage": 0.2506
+              'cpu_id': 'cpu0',
+              'temperature': 41,
+              'temperature_status': '0x1010',
+              'usage': 0.2506
             },
             {
-              "cpu_id": "cpu1",
-              "temperature": 39,
-              "temperature_status": "0x1010",
-              "usage": 0
+              'cpu_id': 'cpu1',
+              'temperature': 39,
+              'temperature_status': '0x1010',
+              'usage': 0
             }
           ]
         },
